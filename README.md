@@ -8,7 +8,7 @@ We've set out to create an app that could be more generally applied to disaster 
 Users in need of this products:
 - Rick Grimes (The Walking Dead) 
 - Ana and Kenneth (Dawn of the Dead) 
-- Shaun Ed (Shaun of the Dead)
+- Shaun and Ed (Shaun of the Dead)
 - Gerry Lane (World War Z) 
 
 What we want to give the user:
