@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :users
+
+  resources :favorites
+
+  resources :locations
+
   ### ACCESS + MAIN ROUTES
   root 'access#login'
 
