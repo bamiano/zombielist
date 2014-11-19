@@ -1,2 +1,24 @@
-<h1>Access#login</h1>
-<p>Find me in app/views/access/login.html.erb</p>
+<div class="container text-center">
+  <%= form_tag(login_path) do %>
+<br>
+<div class="form-group">
+      <%= label_tag(:email, nil,class: "control-label") %>
+      <%= text_field_tag :email, params[:email], autofocus: true, class: "form-control" %>
+
+</div>
+<div class="form-group">
+
+      <%= label_tag(:password,nil, class: "control-label") %>
+      <%= password_field_tag(:password, nil, class: "form-control") %>
+</div>
+
+<div class="form-group">
+
+      &nbsp;
+      <%= submit_tag("Log In", class: "btn btn-primary") %>
+</div>
+
+  <% end %>
+  <p><%= link_to("Don't have an account? Sign up for one here", controller: 'access', action: 'new') %></p>
+</div>
+
