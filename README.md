@@ -30,7 +30,7 @@ Models
 - user --> attributes?
 - locations (favorites)
 - items (favorites)
-- 
+
 Other...
 -RSPEC - need to test certain functionality
 -Views - map out our UX layout and User Login
