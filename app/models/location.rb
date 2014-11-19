@@ -1,4 +1,4 @@
 class Location < ActiveRecord::Base
-	validates :type, :name, :address,
+	validates :location_type, :name, :address,
     presence: true
 end

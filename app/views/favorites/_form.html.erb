@@ -1,4 +1,4 @@
-<%= form_for(@favorite) do |f| %>
+<%= form_for [@user, @favorite] do |f| %>
   <% if @favorite.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@favorite.errors.count, "error") %> prohibited this favorite from being saved:</h2>

@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :users
-
-  resources :favorites
-
-  resources :locations
-
   ### ACCESS + MAIN ROUTES
   root 'access#login'
 
@@ -28,8 +22,10 @@ Rails.application.routes.draw do
 # resource routes for user, plus locaitons and items within users
 
   resources :users do
+    resources :favorites
     resources :locations
-    resources :items
   end
 
+  resources :items
+  
 end

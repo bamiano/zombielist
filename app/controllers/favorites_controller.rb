@@ -1,6 +1,7 @@
 class FavoritesController < ApplicationController
   
   before_action :set_favorite, only: [:show, :edit, :update, :destroy]
+  before_action :user_find, only: [:new, :create]
 
   # GET /favorites
   # GET /favorites.json
@@ -29,7 +30,7 @@ class FavoritesController < ApplicationController
 
     respond_to do |format|
       if @favorite.save
-        format.html { redirect_to @favorite, notice: 'Favorite was successfully created.' }
+        format.html { redirect_to '/', notice: 'Favorite was successfully created.' }
         format.json { render :show, status: :created, location: @favorite }
       else
         format.html { render :new }
@@ -71,5 +72,8 @@ class FavoritesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def favorite_params
       params.require(:favorite).permit(:name, :image, :link)
+    end
+    def user_find
+      @user = User.find(params[:user_id])
     end
 end
