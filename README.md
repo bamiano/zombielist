@@ -32,19 +32,19 @@ Models
 - items (favorites)
 
 Other/Misc
--RSPEC - need to test certain functionality
--Views - map out our UX layout and User Login
--Data validation within forms (validates, flash messages, etc.) 
--Heroku - based on experience from project one
+- RSPEC - need to test certain functionality
+- Views - map out our UX layout and User Login
+- Data validation within forms (validates, flash messages, etc.) 
+- Heroku - based on experience from project one
 
 
 Possible ToDo's for Wednesday 11/19...just my 2 cents, but I think it would be good to at least cover these items before we really jump into any coding tomorrow.
 
--Scope. What are you planning to build? What do you reasonably think you can implement in the time period?
--User stories. What features will your app have? Set up your project and user stories in Trello.
--Wireframes. Sketch out what a few of your core pages will look like and how they will work. Paper works great. You can also check out wireframing software like Gliffy or Omnigraffle.
--Object Models. Draw out the model associations for your project.
--Milestones. Outline some milestones for yourself based on how you prefer to work.
+- Scope. What are you planning to build? What do you reasonably think you can implement in the time period?
+- User stories. What features will your app have? Set up your project and user stories in Trello.
+- Wireframes. Sketch out what a few of your core pages will look like and how they will work. Paper works great. You can also check out wireframing software like Gliffy or Omnigraffle.
+- Object Models. Draw out the model associations for your project.
+- Milestones. Outline some milestones for yourself based on how you prefer to work.
 
 
 Team Yoda.....Build a web app we will
