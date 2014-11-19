@@ -31,7 +31,7 @@ Models
 - locations (favorites)
 - items (favorites)
 
-Other/Misc.
+Other/Misc
 -RSPEC - need to test certain functionality
 -Views - map out our UX layout and User Login
 -Data validation within forms (validates, flash messages, etc.) 
