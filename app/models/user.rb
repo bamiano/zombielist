@@ -18,6 +18,4 @@ class User < ActiveRecord::Base
     presence: true,
     numericality: true,
     length: {maximum: 5}
-
-
 end
