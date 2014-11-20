@@ -11,13 +11,11 @@ Rails.application.routes.draw do
 
   get 'signup', to: 'access#new'
 
-  get 'home', to: 'users#index'
-
   get 'login', to: 'access#login', as: 'login'
 
-  get 'logout', to: 'access#logout'
-
   post 'login', to: 'access#attempt_login'
+
+  get 'logout', to: 'access#logout'
 
 # resource routes for user, plus locaitons and items within users
 
