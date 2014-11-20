@@ -14,16 +14,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
-gem 'pry-rails'
-
-gem 'bcrypt'
-
-gem 'actionmailer'
-
-gem 'hirb'
-
-gem 'bootstrap_form'
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -36,11 +26,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-gem 'awesome_print'
-gem 'hirb'
-
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -50,4 +37,41 @@ gem 'hirb'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+############ ADDED GEMS ############
+
+# added gems from 11/19
+# email
+gem 'actionmailer'
+# database helper for console
+gem 'hirb'
+# bootstrap form gem
+gem 'bootstrap_form'
+# prints ruby objects in full color
+gem "awesome_print", require: "ap"
+
+
+
+# gems for testing
+group :test, :development do
+  gem "rspec-rails"
+  gem "capybara"
+  gem "launchy"
+  gem "guard-rspec"
+  gem "rb-fsevent"
+  gem "factory_girl_rails"
+end
+
+group :test do
+  gem "shoulda-matchers"
+end
+
+group :development do
+  gem "better_errors"
+  gem "pry-rails"
+  gem "pry-byebug"
+  gem "quiet_assets"
+end
+
+
 
