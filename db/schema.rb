@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20141119200348) do
     t.string   "password"
     t.string   "password_digest"
     t.integer  "location"
+    t.string   "reset_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
