@@ -1,6 +1,6 @@
 class AccessController < ApplicationController
 
-  before_action :confirm_logged_in, except: [:new, :create, :attempt_login, :login, :logout]
+  before_action :confirm_logged_in, except: [:new, :create, :attempt_login, :login, :logout, :send_reset, :forgot_password, :reset_password, :update_password]
   before_action :prevent_login_signup, only: [:login, :new]
 
   def new
@@ -59,41 +59,47 @@ class AccessController < ApplicationController
   end
 
 
-  # def reset_password
-  #   @token = params[:token]
-  #   @user = User.find_by :reset_token => @token
-  #   if @user.nil?
-  #     flash[:error] = "Invalid reset token"
-  #     render :login
-  #   else
-  #     render :reset_password
-  #   end
-  # end
+  def reset_password
+    @token = params[:token]
+    @user = User.find_by :reset_token => @token
+    if @user.nil?
+      flash[:error] = "Invalid reset token"
+      render :login
+    else
+      render :reset_password
+    end
+  end
 
-  # #post '/send_reset' => 'user#reset_password'
-  # def send_reset
-  #   # username in param
-  #   username = params[:username]
-  #   user =  User.find_by username: username
-  #   if user.nil?
-  #     flash[:error] = "No such user:" + username
-  #   else
-  #     # create and save reset token on user
-  #     user.reset_token = (0...16).map { (65 + rand(26)).chr }.join
-  #     user.save
-  #     UserMailer.forgot_password_email(user).deliver
-  #     flash[:success] = "Please check your email for reset instructions ..."
-  #   end
-  #   render :forgot_password
-  # end
+  #post '/send_reset' => 'user#reset_password'
+  def send_reset
+    # email in param
+    email = params[:email]
+    user =  User.find_by email: email
+    if user.nil?
+      flash[:error] = "No such user:" + email
+    else
+      # create and save reset token on user
+      reset_token = (0...16).map { (65 + rand(26)).chr }.join
+      user.update_attributes(reset_token: reset_token)
+      UserMailer.forgot_password_email(user).deliver
+      flash[:success] = "Please check your email for reset instructions ..."
+    end
+      redirect_to :login
+  end
 
-  # def update_password
-  #   user_params = params.permit(:username, :password, :password_confirmation)
-  #   @user = User.find_by username: user_params[:username]
-  #   @user.update_attributes(password: user_params[:password], password_confirmation: user_params[:password_confirmation])
-  #   flash[:success] = "Your password has changed, try it out ..."
-  #   render :login
-  # end
+  def forgot_password
+    render :forgot_password
+  end
+
+  def update_password
+  # do I need to include the password_confirmation?
+
+    user_params = params.permit(:email, :password, :password_confirmation)
+    @user = User.find_by email: user_params[:email]
+    @user.update_attributes(password: user_params[:password], password_confirmation: user_params[:password_confirmation])
+    flash[:success] = "Your password has changed, try it out ..."
+    render :login
+  end
 
   private
 
