@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   ### ACCESS + MAIN ROUTES
   root 'access#login'
 
+  get '/home', to: 'access#home'
+
   get '/', to: 'access#login'
 
   get 'index', to: 'access#login'

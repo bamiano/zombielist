@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     if(@user.save)
       session[:user_id] = @user.id
       # session[:is_admin] = @user.is_admin
-      flash[:success] = "You're profile is updated"
+      flash[:success] = "Your profile is updated"
       redirect_to '/home'
     else
       render :edit

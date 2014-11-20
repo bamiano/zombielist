@@ -7,6 +7,10 @@ class AccessController < ApplicationController
     @user = User.new
   end
 
+  def favorites
+
+  end
+
   def create
     @user = User.create(user_params)
     if(@user.save)
@@ -23,6 +27,7 @@ class AccessController < ApplicationController
   end
 
   def login
+    @user = User.new
   end
 
   def attempt_login
@@ -104,7 +109,7 @@ class AccessController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :location)
+    params.require(:user).permit(:email, :password, :zipcode)
   end
 
 end

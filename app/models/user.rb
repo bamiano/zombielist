@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :locations
-  has_many :items
+  has_many :favorites
 
   validates :email,
     uniqueness: true,
@@ -14,9 +14,4 @@ class User < ActiveRecord::Base
     presence: true,
     length: {minimum: 5},
     on: :create
-
-  validates :location,
-    presence: true,
-    numericality: true,
-    length: {maximum: 5}
 end
