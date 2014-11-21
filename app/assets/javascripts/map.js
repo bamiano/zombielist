@@ -179,9 +179,9 @@ window.onload = function() {
       type: 'POST',
       url: $('#user-url').val(),
       data: {
-        category: venue.categories.name,
+        location_type: venue.categories[0].name,
         name: venue.name,
-        location: venue.location.address
+        address: venue.location.address
       },
       headers: {
           "X-CSRF-Token": token

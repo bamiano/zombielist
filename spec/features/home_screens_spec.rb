@@ -74,6 +74,8 @@ feature "View Wishlist", :type => :feature do
   end
 end
 
+# RSpec - will retest when feature is working...
+
 feature "Add Locations", :type => :feature do
   scenario "User can add locations" do
     #1. setup phase
@@ -84,23 +86,18 @@ feature "Add Locations", :type => :feature do
     fill_in "password", with: u.password
     click_button "Log In"
 
-    # fill_in "location_location_type", with: "Home"
-    # fill_in "location_name", with: "My House"
-    # fill_in "location_address", with: "56 Glover St."
-    # click_button "Create Location"
-
-    fav_location = []
-        3.times do |i|
-      fav_location << create(:location)
-    end
-
     #2. exercise phase
     visit new_user_location_path(u)
 
+    fill_in "location[location_type]", with: "Home"
+    fill_in "location[name]", with: "My house"
+    fill_in "location[address]", with: "56 Glover St."
+    click_button "Create Location"
+
     #3. verification phase
-    fav_location.each do |fav|
-      expect(page).to have_text(fav.location_type, fav.name, fav.address)
-    end
+      expect(page).to have_text("Home")
+      expect(page).to have_text("My house")
+      expect(page).to have_text("56 Glover St.")
   end
 end
 
