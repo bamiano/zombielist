@@ -1,8 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    name("My todo item"),
-    password("plaintext"),
-
+    email("someemail@email.com")
+    password("plaintext")
   end
-
 end

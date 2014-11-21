@@ -1,12 +1,14 @@
 class FavoritesController < ApplicationController
-  
+
   before_action :set_favorite, only: [:show, :edit, :update, :destroy]
   before_action :user_find, only: [:new, :create]
+  before_action :current_user, only: [:index]
 
   # GET /favorites
   # GET /favorites.json
   def index
     @favorites = Favorite.all
+
   end
 
   # GET /favorites/1

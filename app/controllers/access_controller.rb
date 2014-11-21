@@ -18,7 +18,7 @@ class AccessController < ApplicationController
       # .deliver - method that action mailer and rails knows
       session[:user_id] = @user.id
       # session[:is_admin] = @user.is_admin
-      flash[:success] = "You are now logged in!"
+      flash[:success] = "You have create an account!"
       redirect_to users_path
     else
       render :new
@@ -49,7 +49,7 @@ class AccessController < ApplicationController
     else
       session[:user_id] = authorized_user.id
       # session[:is_admin] = authorized_user.is_admin
-      flash[:success] = "You are now logged in."
+      flash[:success] = "You are now logged in!"
       redirect_to users_path
     end
 

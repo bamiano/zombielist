@@ -1,1 +1,17 @@
 <h1>Home Page!!!!!!!</h1>
+
+  <%= form_for(@locations, home_path) do |f|%>
+<br>
+<div class="form-group">
+      <%= f.label(:location_type, class: "control-label") %>
+      <%= f.text_field :zipcode, autofocus: true, class: "form-control" %>
+</div>
+<div class="form-group">
+      <%= f.label(:name, class: "control-label") %>
+      <%= f.text_field :zipcode, autofocus: true, class: "form-control" %>
+</div>
+<div class="form-group">
+      <%= f.label(:address, class: "control-label") %>
+      <%= f.text_field :zipcode, autofocus: true, class: "form-control" %>
+</div>
+<% end %>
