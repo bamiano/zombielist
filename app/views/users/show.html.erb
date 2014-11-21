@@ -1,66 +1,15 @@
-<div class="container">  
-  <p id="notice"><%= notice %></p>
+<!-- link to internal style sheet -->
+<!-- <link rel="stylesheet" href="stylesheets/scaffold.css.scss"> -->
+
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
+
+<!-- <link rel="javascript" href="javascripts/map.js"> -->
+
+<input type="hidden" id="user-url" value="<%= '/users/' + params[:id].to_s + '/locations' %>" />
 
 
-  <p>
-    <strong>Email:</strong>
-    <%= @user.email %>
-  </p>
+<nav id='filters' class='filter-ui'></nav>
+<div id='map'></div>
 
-  <p>
-    <strong>Locations</strong>
-    <ul>
-    <% @user.locations.each do |el| %>
-    <li><%=el.name%></li>
-    <%end%>
-    </ul>
-  </p>
-
-  <p>
-    <strong>Favorites</strong>
-    <ul>
-    <% @user.favorites.each do |el| %>
-    <li><%=el.name%></li>
-    <%end%>
-    </ul>
-  </p>
-
-
-  <div class="row">
-    <div class="col-xs-6 col-sm-4 col-md-4">
-      <div class="thumbnail">
-        <img src="http://ecx.images-amazon.com/images/I/81j4x5Pc7%2BL._SL1500_.jpg">
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-xs-6 col-sm-4 col-md-4">
-      <div class="thumbnail">
-        <img src="http://ecx.images-amazon.com/images/I/81j4x5Pc7%2BL._SL1500_.jpg">
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-xs-6 col-sm-4 col-md-4">
-      <div class="thumbnail">
-        <img src="http://ecx.images-amazon.com/images/I/81j4x5Pc7%2BL._SL1500_.jpg">
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <%= link_to 'Edit', edit_user_path(@user) %> |
-  <%= link_to 'Back', users_path %>
-</div>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
