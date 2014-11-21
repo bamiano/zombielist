@@ -26,9 +26,11 @@ ActiveRecord::Schema.define(version: 20141120235246) do
   end
 
   create_table "items", force: true do |t|
-    t.string   "items"
+    t.string   "item"
     t.text     "url"
-    t.integer  "user_id"
+    t.text     "image"
+    t.integer  "price"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

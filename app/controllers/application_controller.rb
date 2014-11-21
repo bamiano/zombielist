@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
 end
 
 private
-
   # Ensure a user is logged in
   def confirm_logged_in
     unless session[:user_id]
@@ -24,7 +23,7 @@ private
   # Prevent a user from going to another users page
   def prevent_user(user)
     if user.nil? or session[:user_id] != user.id
-      redirect_to('/index')
+      redirect_to('/login')
     end
   end
 

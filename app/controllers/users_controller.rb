@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  before_action :confirm_logged_in
 
   def index
     @users = User.all
@@ -7,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
-    # prevent_user(@user)
+    prevent_user(@user)
   end
 
   def edit

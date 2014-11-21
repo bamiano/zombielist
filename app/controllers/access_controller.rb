@@ -40,10 +40,12 @@ class AccessController < ApplicationController
     end
 
     if !found_user
+      @user = User.new
       flash.now[:alert] = "Invalid email"
       render :login
     elsif !authorized_user
       flash.now[:alert] = "Invalid password"
+      @user = found_user
       # use .now when rendering a new page, instead of redirecting to a page
       render :login
     else
