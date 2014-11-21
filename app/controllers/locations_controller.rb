@@ -1,6 +1,7 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
   before_action :user_find, only: [:new, :create]
+  before_action :confirm_logged_in
 
   # GET /locations
   # GET /locations.json
@@ -25,7 +26,10 @@ class LocationsController < ApplicationController
   # POST /locations
   # POST /locations.json
   def create
-    @location = Location.new(location_params)
+    
+    @location = Location.create(location_params)
+    current_user.locations <<  @location
+
 
     respond_to do |format|
       if @location.save
@@ -75,4 +79,5 @@ class LocationsController < ApplicationController
     def user_find
       @user = User.find(params[:user_id])
     end
+
 end

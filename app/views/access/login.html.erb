@@ -1,7 +1,23 @@
 <div class="container">
 	<div class="row" >
+
+
+
 		<h1>Cover your page.</h1>
 		<p >Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+
+
+		<% if @user.errors.any? %>
+		<ul class = "text-danger list-unstyled">
+			<%  for err in @user.errors.full_messages %>
+			<li>
+				<%= err%>
+			</li>
+			<% end %>
+		</ul>
+		<% end %>
+
+		
 		<p>
 			<a href="#" class="btn btn-lg btn-success" data-target="#login-modal" data-toggle="modal" >Login</a>
 			<a href="#" class="btn btn-lg btn-warning" data-target="#create-modal" data-toggle="modal" >Sign Up</a>
@@ -51,6 +67,10 @@
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 				<h4 class="modal-title">Signup for !Zombify</h4>
+
+
+
+
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
@@ -70,6 +90,7 @@
 
 				<%= f.submit("Sign Up", class: "btn btn-primary") %>
 			</div>
+
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

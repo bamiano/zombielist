@@ -3,7 +3,7 @@ class CreateFavorites < ActiveRecord::Migration
     create_table :favorites do |t|
       t.string :name
       t.string :image
-      t.string :link
+      t.text :link
 
       t.timestamps
     end
