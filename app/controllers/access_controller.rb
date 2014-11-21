@@ -21,7 +21,7 @@ class AccessController < ApplicationController
       flash[:success] = "You have create an account!"
       redirect_to users_path
     else
-      render :new
+      render :login
     end
 
   end

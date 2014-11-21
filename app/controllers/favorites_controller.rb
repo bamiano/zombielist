@@ -3,6 +3,8 @@ class FavoritesController < ApplicationController
   before_action :set_favorite, only: [:show, :edit, :update, :destroy]
   before_action :user_find, only: [:new, :create]
   before_action :current_user, only: [:index]
+  before_action :confirm_logged_in
+
 
   # GET /favorites
   # GET /favorites.json
@@ -28,11 +30,15 @@ class FavoritesController < ApplicationController
   # POST /favorites
   # POST /favorites.json
   def create
-    @favorite = Favorite.new(favorite_params)
+
+    @favorite = Favorite.create(favorite_params)
+
+    current_user.favorites <<  @favorite
+
 
     respond_to do |format|
       if @favorite.save
-        format.html { redirect_to '/', notice: 'Favorite was successfully created.' }
+        format.html { redirect_to user_path(current_user), notice: 'Favorite was successfully created.' }
         format.json { render :show, status: :created, location: @favorite }
       else
         format.html { render :new }
