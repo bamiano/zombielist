@@ -74,33 +74,33 @@ feature "View Wishlist", :type => :feature do
   end
 end
 
-feature "Add Locations", :type => :feature do
-  scenario "User can add locations" do
-    #1. setup phase
-    u = create(:user)
-    visit login_path
+# feature "Add Locations", :type => :feature do
+#   scenario "User can add locations" do
+#     #1. setup phase
+#     u = create(:user)
+#     visit login_path
 
-    fill_in "email", with: u.email
-    fill_in "password", with: u.password
-    click_button "Log In"
+#     fill_in "email", with: u.email
+#     fill_in "password", with: u.password
+#     click_button "Log In"
 
-    # fill_in "location_location_type", with: "Home"
-    # fill_in "location_name", with: "My House"
-    # fill_in "location_address", with: "56 Glover St."
-    # click_button "Create Location"
+#     # fill_in "location_location_type", with: "Home"
+#     # fill_in "location_name", with: "My House"
+#     # fill_in "location_address", with: "56 Glover St."
+#     # click_button "Create Location"
 
-    fav_location = []
-        3.times do |i|
-      fav_location << create(:location)
-    end
+#     fav_location = []
+#         3.times do |i|
+#       fav_location << create(:location)
+#     end
 
-    #2. exercise phase
-    visit new_user_location_path(u)
+#     #2. exercise phase
+#     visit new_user_location_path(u)
 
-    #3. verification phase
-    fav_location.each do |fav|
-      expect(page).to have_text(fav.location_type, fav.name, fav.address)
-    end
-  end
-end
+#     #3. verification phase
+#     fav_location.each do |fav|
+#       expect(page).to have_text(fav.location_type, fav.name, fav.address)
+#     end
+#   end
+# end
 
