@@ -1,29 +1,66 @@
-<p id="notice"><%= notice %></p>
+<div class="container">  
+  <p id="notice"><%= notice %></p>
 
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
 
-<p>
-  <strong>Locations</strong>
-  <ul>
-  <% @user.locations.each do |el| %>
-  <li><%=el.name%></li>
-  <%end%>
-  </ul>
-</p>
+  <p>
+    <strong>Locations</strong>
+    <ul>
+    <% @user.locations.each do |el| %>
+    <li><%=el.name%></li>
+    <%end%>
+    </ul>
+  </p>
 
-<p>
-  <strong>Favorites</strong>
-  <ul>
-  <% @user.favorites.each do |el| %>
-  <li><%=el.name%></li>
-  <%end%>
-  </ul>
-</p>
+  <p>
+    <strong>Favorites</strong>
+    <ul>
+    <% @user.favorites.each do |el| %>
+    <li><%=el.name%></li>
+    <%end%>
+    </ul>
+  </p>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <div class="row">
+    <div class="col-xs-6 col-sm-4 col-md-4">
+      <div class="thumbnail">
+        <img src="http://ecx.images-amazon.com/images/I/81j4x5Pc7%2BL._SL1500_.jpg">
+        <div class="caption">
+          <h3>Thumbnail label</h3>
+          <p>...</p>
+          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-6 col-sm-4 col-md-4">
+      <div class="thumbnail">
+        <img src="http://ecx.images-amazon.com/images/I/81j4x5Pc7%2BL._SL1500_.jpg">
+        <div class="caption">
+          <h3>Thumbnail label</h3>
+          <p>...</p>
+          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-6 col-sm-4 col-md-4">
+      <div class="thumbnail">
+        <img src="http://ecx.images-amazon.com/images/I/81j4x5Pc7%2BL._SL1500_.jpg">
+        <div class="caption">
+          <h3>Thumbnail label</h3>
+          <p>...</p>
+          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', users_path %>
+</div>
