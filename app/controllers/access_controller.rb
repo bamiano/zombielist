@@ -19,7 +19,7 @@ class AccessController < ApplicationController
       session[:user_id] = @user.id
       # session[:is_admin] = @user.is_admin
       flash[:success] = "You have create an account!"
-      redirect_to users_path
+      redirect_to user_path(@user.id)
     else
       render :login
     end
@@ -40,17 +40,19 @@ class AccessController < ApplicationController
     end
 
     if !found_user
+      @user = User.new
       flash.now[:alert] = "Invalid email"
       render :login
     elsif !authorized_user
       flash.now[:alert] = "Invalid password"
+      @user = found_user
       # use .now when rendering a new page, instead of redirecting to a page
       render :login
     else
       session[:user_id] = authorized_user.id
       # session[:is_admin] = authorized_user.is_admin
       flash[:success] = "You are now logged in!"
-      redirect_to users_path
+      redirect_to user_path(authorized_user.id)
     end
 
   end
