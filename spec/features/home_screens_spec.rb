@@ -1,5 +1,4 @@
 require 'rails_helper'
-require_relative 'test_helper_methods'
 
 # feature "Signup", :type => :feature do
 #   scenario "User can create an accout" do
@@ -50,23 +49,58 @@ feature "Login", :type => :feature do
   end
 end
 
-# feature "View Wishlist", :type => :feature do
-#   scenario "User can view wishlist" do
-#     #1. setup phase
-#     user = User.create(email: "testuser@gmail.com", password: "password")
-#     login(user)
-#     supply_list = []
-#         3.times do |i|
-#       supply_list << create(:favorite, name: "Water #{i}", image: "image #{i}", link: "www.example.com #{i}")
-#     end
+feature "View Wishlist", :type => :feature do
+  scenario "User can view wishlist" do
+    #1. setup phase
+    u = create(:user)
+    visit login_path
 
-#     #2. exercise phase
-#     visit user_favorites_path
+    fill_in "email", with: u.email
+    fill_in "password", with: u.password
+    click_button "Log In"
 
-#     #3. verification phase
-#     favorites.each do |fav|
-#       expect(page).to have_text(fav.name)
-#     end
-#   end
-# end
+    supply_list = []
+        3.times do |i|
+      supply_list << create(:favorite, name: "Water #{i}", image: "image #{i}", link: "www.example.com #{i}")
+    end
+
+    #2. exercise phase
+    visit user_favorites_path(u)
+
+    #3. verification phase
+    supply_list.each do |fav|
+      expect(page).to have_text(fav.name)
+    end
+  end
+end
+
+feature "Add Locations", :type => :feature do
+  scenario "User can add locations" do
+    #1. setup phase
+    u = create(:user)
+    visit login_path
+
+    fill_in "email", with: u.email
+    fill_in "password", with: u.password
+    click_button "Log In"
+
+    # fill_in "location_location_type", with: "Home"
+    # fill_in "location_name", with: "My House"
+    # fill_in "location_address", with: "56 Glover St."
+    # click_button "Create Location"
+
+    fav_location = []
+        3.times do |i|
+      fav_location << create(:location)
+    end
+
+    #2. exercise phase
+    visit new_user_location_path(u)
+
+    #3. verification phase
+    fav_location.each do |fav|
+      expect(page).to have_text(fav.location_type, fav.name, fav.address)
+    end
+  end
+end
 
