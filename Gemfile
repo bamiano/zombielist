@@ -56,10 +56,12 @@ gem "awesome_print", require: "ap"
 group :test, :development do
   gem "rspec-rails"
   gem "capybara"
+  gem "capybara-webkit"
   gem "launchy"
   gem "guard-rspec"
   gem "rb-fsevent"
   gem "factory_girl_rails"
+  gem "selenium-webdriver"
 end
 
 group :test do

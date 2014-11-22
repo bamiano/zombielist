@@ -49,34 +49,7 @@ feature "Login", :type => :feature do
   end
 end
 
-feature "View Wishlist", :type => :feature do
-  scenario "User can view wishlist" do
-    #1. setup phase
-    u = create(:user)
-    visit login_path
-
-    fill_in "email", with: u.email
-    fill_in "password", with: u.password
-    click_button "Log In"
-
-    supply_list = []
-        3.times do |i|
-      supply_list << create(:favorite, name: "Water #{i}", image: "image #{i}", link: "www.example.com #{i}")
-    end
-
-    #2. exercise phase
-    visit user_favorites_path(u)
-
-    #3. verification phase
-    supply_list.each do |fav|
-      expect(page).to have_text(fav.name)
-    end
-  end
-end
-
-# RSpec - will retest when feature is working...
-
-feature "Add Locations", :type => :feature do
+feature "Add Favorites", :type => :feature do
   scenario "User can add locations" do
     #1. setup phase
     u = create(:user)
@@ -87,17 +60,61 @@ feature "Add Locations", :type => :feature do
     click_button "Log In"
 
     #2. exercise phase
-    visit new_user_location_path(u)
+    visit new_user_favorite_path(u)
 
-    fill_in "location[location_type]", with: "Home"
-    fill_in "location[name]", with: "My house"
-    fill_in "location[address]", with: "56 Glover St."
-    click_button "Create Location"
+    fill_in "favorite[name]", with: "Water"
+    fill_in "favorite[image]", with: "www.example.com"
+    fill_in "favorite[link]", with: "image"
+    click_button "Create Favorite"
 
     #3. verification phase
-      expect(page).to have_text("Home")
-      expect(page).to have_text("My house")
-      expect(page).to have_text("56 Glover St.")
+      expect(page).to have_text('Favorite was successfully created.')
+
   end
 end
+
+feature 'Save A location' do
+  scenario 'User Can Save A location', js: true do
+    #1. setup phase
+    u = create(:user)
+    visit login_path
+
+    fill_in "email", with: u.email
+    fill_in "password", with: u.password
+    click_button "Log In"
+
+    #2. exercise phase
+    visit user_path(u)
+    click_button "Save to favorites"
+
+    #3. verification phase
+    expect(page).to have_text(location_type)
+  end
+end
+
+# RSpec - will retest when feature is working...
+# feature "Add Locations", :type => :feature do
+#   scenario "User can add locations" do
+#     #1. setup phase
+#     u = create(:user)
+#     visit login_path
+
+#     fill_in "email", with: u.email
+#     fill_in "password", with: u.password
+#     click_button "Log In"
+
+#     #2. exercise phase
+#     visit new_user_location_path(u)
+
+#     fill_in "location[location_type]", with: "Home"
+#     fill_in "location[name]", with: "My house"
+#     fill_in "location[address]", with: "56 Glover St."
+#     click_button "Create Location"
+
+#     #3. verification phase
+#       expect(page).to have_text("Home")
+#       expect(page).to have_text("My house")
+#       expect(page).to have_text("56 Glover St.")
+#   end
+# end
 
