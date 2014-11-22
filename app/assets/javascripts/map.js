@@ -4,11 +4,21 @@ window.onload = function() {
   var geocoder = L.mapbox.geocoder('mapbox.places-v1'),
       map = L.mapbox.map('map', 'ybinstock.k1nk0dji');
 
+  var gControl = L.mapbox.geocoderControl('mapbox.places-v1', {
+        keepOpen: true
+    } );
+
+  gControl.on('found', function(data){
+      console.log(data.results.query[0]);
+      geocoder.query(data.results.query[0], showMap);
+  });
+
+  map.addControl(gControl);
+
+
   // Credit Foursquare
   map.attributionControl
       .addAttribution('<a href="https://foursquare.com/">Places data from Foursquare</a>');
-
-  geocoder.query('San Francisco, CA', showMap);
 
   function showMap(err, data) {
       // The geocoder can return an area, like a city, or a
@@ -17,7 +27,7 @@ window.onload = function() {
       if (data.lbounds) {
           map.fitBounds(data.lbounds);
       } else if (data.latlng) {
-          map.setView([data.latlng[0], data.latlng[1]], 13);
+          map.setView([data.latlng[0], data.latlng[1]], 20);
       }
 
       // Foursquare API Info
@@ -115,20 +125,12 @@ window.onload = function() {
       // Find and store a variable reference to the list of filters.
       var filters = document.getElementById('filters');
 
-      // Wait until the marker layer is loaded in order to build a list of possible
-      // types. If you are doing this with another featureLayer, you should change
-      // map.featureLayer to the variable you have assigned to your featureLayer.
-
       map.featureLayer.on('ready', function() {
 
         var typesObj = {}, types = ["suplies","food", "weapons", "hideouts"];
-        // var features = map.featureLayer.getGeoJSON().features;
-        // for (var i = 0; i < features.length; i++) {
-        //   typesObj[features[i].properties['marker-symbol']] = true;
-        // }
-        // for (var k in typesObj) types.push(k);
 
         var checkboxes = [];
+
 
         // Create a filter interface.
         for (var i = 0; i < types.length; i++) {
@@ -145,6 +147,16 @@ window.onload = function() {
           // Whenever a person clicks on this checkbox, call the update().
           checkbox.addEventListener('change', update);
           checkboxes.push(checkbox);
+            if (i===types.length-1) {
+                item.appendChild(document.createElement("br"));
+              var button = item.appendChild(document.createElement('button'));
+                button.innerHTML="Favorites";
+                $("button").click(function(){
+                    window.location.href='show.html.erb';
+                });
+
+            }
+
         }
 
         // This function is called whenever someone clicks on a checkbox and changes
@@ -168,7 +180,6 @@ window.onload = function() {
       });
 
   // have location saved to favorite locations list once clicked
-  var favoritelocations = {};
 
   addlocation = function(venue) {
     console.log("venue", venue);
@@ -187,9 +198,7 @@ window.onload = function() {
           "X-CSRF-Token": token
       }
     }).done();
-    // (function(location) {
-    //   favoritelocations.loadlocations();
-    // });
+
   };
 
 }
