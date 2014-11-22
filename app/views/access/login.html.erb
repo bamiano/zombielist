@@ -1,29 +1,32 @@
+
 <div class="container">
+	<div class="row" style="height:170px">
+	</div>
 	<div class="row" >
+		<div class="col-md-6">
 
 
+			<h1>Zombie preparation!</h1>
+			<p >Cover is a one page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
 
-		<h1>Cover your page.</h1>
-		<p >Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
 
-
-		<% if @user.errors.any? %>
-		<ul class = "text-danger list-unstyled">
-			<%  for err in @user.errors.full_messages %>
-			<li>
-				<%= err%>
-			</li>
+			<% if @user.errors.any? %>
+			<ul class = "text-danger list-unstyled">
+				<%  for err in @user.errors.full_messages %>
+				<li>
+					<%= err%>
+				</li>
+				<% end %>
+			</ul>
 			<% end %>
-		</ul>
-		<% end %>
 
-		
-		<p>
-			<a href="#" class="btn btn-lg btn-success" data-target="#login-modal" data-toggle="modal" >Login</a>
-			<a href="#" class="btn btn-lg btn-warning" data-target="#create-modal" data-toggle="modal" >Sign Up</a>
-		</p>
-		<p><%= link_to("Don't have an account? Sign up for one here", controller: 'access', action: 'new') %></p>
-		<p><%= link_to("Forgot password?", controller: 'access', action: 'forgot_password') %></p>
+
+			<p>
+				<a href="#" class="btn btn-lg btn-success" data-target="#login-modal" data-toggle="modal" >Login</a>
+				<a href="#" class="btn btn-lg btn-warning" data-target="#create-modal" data-toggle="modal" >Sign Up</a>
+			</p>
+					<p id="forgot"><%= link_to("Forgot password?", controller: 'access', action: 'forgot_password') %></p>
+		</div>
 	</div>
 </div>
 
@@ -39,7 +42,7 @@
 			<div class="modal-body">
 				<div class="form-group">
 					<%= label_tag(:email, nil,class: "control-label") %>
-					<%= text_field_tag :email, params[:email], autofocus: true, class: "form-control" %>
+					<%= text_field_tag :email, params[:email], class: "form-control" %>
 
 				</div>
 				<div class="form-group">
@@ -75,7 +78,7 @@
 			<div class="modal-body">
 				<div class="form-group">
 					<%= f.label(:email, class: "control-label") %>
-					<%= f.text_field :email, autofocus: true, class: "form-control" %>
+					<%= f.text_field :email, class: "form-control" %>
 
 				</div>
 				<div class="form-group">
