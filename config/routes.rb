@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/home', to: 'access#home'
 
-  get '/', to: 'access#login'
+  get '/', to: 'access#login', as: 'log'
 
   get 'index', to: 'access#login'
 

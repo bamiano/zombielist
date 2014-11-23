@@ -13,3 +13,147 @@
  *= require_tree .
  *= require_self
  */
+ @import url(http://fonts.googleapis.com/css?family=Poiret+One);
+
+
+
+
+ body{
+ 	/*background-color: rgba(0,0,0,0.9);*/
+ 	background: url('https://s3.amazonaws.com/uploads.hipchat.com/39979/1240676/et9CSybKP7QlU6g/backg.jpg') no-repeat center center fixed;
+ 	-webkit-background-size: cover;
+ 	-moz-background-size: cover;
+ 	-o-background-size: cover;
+ 	background-size: cover;
+ 	color: white;
+ 	font-family: 'Poiret One', cursive;
+ 	font-size: 20px;
+ }
+
+ h1, h2, h3, h4 {
+ 	font-family: 'Poiret One', cursive;
+ 	text-shadow: 1px 1px 1px #000;
+ }
+
+ p{
+ 	font-family: 'Poiret One', cursive;
+ 	font-size: 20px;
+ 	line-height: 1.5;
+ }
+
+ #forgot{
+ 	color: white;
+ 	text-decoration: none;
+ }
+
+ input[type=text] {
+ 	background: transparent;
+ 	color: white;
+ 	border: none;
+ 	border-bottom: 2px solid #fff;
+ }
+
+ .btn {
+ 	border: 2px solid #fff;
+ 	border-radius: 0;
+ 	background: none;
+ 	color:white;
+ 	text-decoration: none;
+ }
+
+ .btn:hover {
+ 	border: 2px solid #fff;
+ 	border-radius: 0;
+ 	background: none;
+ 	color:white;
+ }
+
+ .modal-dialog *:focus {
+ 	outline: 0;
+ }
+
+
+ *:focus {
+ 	outline: 0 !important;
+ }
+
+
+ input[type=password] {
+ 	background: transparent;
+ 	border: none;
+ 	border-bottom: 2px solid #fff;
+ }
+
+
+
+ .modal-dialog
+ {
+ 	width: 300px; /* your width */
+
+ }
+
+ .modal-content {
+ 	padding:9px 15px;
+ 	border-bottom:1px solid #eee;
+ 	background-color: rgba(0,0,0,0.7);
+ 	opacity: 0.9;
+ 	-webkit-border-top-left-radius: 5px;
+ 	-webkit-border-top-right-radius: 5px;
+ 	-moz-border-radius-topleft: 5px;
+ 	-moz-border-radius-topright: 5px;
+ 	border-top-left-radius: 5px;
+ 	border-top-right-radius: 5px;
+ }
+
+ .moda-header{
+ 	border: none;
+ }
+
+
+
+
+ .login input[type=text]{
+
+ 	background: transparent;
+ 	border-radius: 2px;
+ 	color: #27ae60;
+ 	font-size: 16px;
+ 	font-weight: 400;
+ 	padding: 4px;
+ }
+
+ .login input[type=password]{
+
+ 	background: transparent;
+ 	border-radius: 2px;
+ 	color: #fff;
+ 	font-size: 16px;
+ 	font-weight: bold;
+ 	padding: 4px;
+ 	margin-top: 10px;
+ }
+
+ .login input[type=button]{
+
+ 	background: #fff;
+ 	border: 1px solid #fff;
+ 	cursor: pointer;
+ 	border-radius: 2px;
+ 	color: #a18d6c;
+
+ 	font-size: 16px;
+ 	font-weight: 400;
+ 	padding: 6px;
+ 	margin-top: 10px;
+ }
+
+
+ .login input[type=button]:active{
+ 	opacity: 0.6;
+ }
+
+
+
+ .login input[type=button]:focus{
+ 	outline: none;
+ }

@@ -8,6 +8,10 @@ require 'capybara/rspec'
 require 'rspec/rails'
 require 'shoulda/matchers'
 
+# set the javascript driver to webkit
+# as per https://github.com/thoughtbot/capybara-webkit
+Capybara.javascript_driver = :webkit
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

@@ -73,22 +73,31 @@ feature "Add Favorites", :type => :feature do
   end
 end
 
-feature 'Save A location' do
-  scenario 'User Can Save A location', js: true do
-    #1. setup phase
-    u = create(:user)
-    visit login_path
+# feature 'Save A location' do
+#   scenario 'User Can Save A location', js: true do
+#     #1. setup phase
+#     u = create(:user)
+#     visit log_path
 
-    fill_in "email", with: u.email
-    fill_in "password", with: u.password
-    click_button "Log In"
+#     fill_in "email", with: u.email
+#     fill_in "password", with: u.password
+#     click_button "Log In"
 
-    #2. exercise phase
-    visit user_path(u)
-    click_button "Save to favorites"
+#     #2. exercise phase
+#     visit user_path(u)
+#     click_button "Save to favorites"
 
-    #3. verification phase
-    expect(page).to have_text(location_type)
+#     #3. verification phase
+#     expect(page).to have_text(location_type)
+#   end
+
+
+describe "404 page" do
+  it "is customized" do
+
+    visit "/404"
+
+    expect(page.status_code).to eq 404
   end
 end
 
