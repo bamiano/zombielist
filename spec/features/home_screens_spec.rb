@@ -99,7 +99,7 @@ describe "404 page" do
 
     expect(page.status_code).to eq 404
   end
-end
+
 
 # RSpec - will retest when feature is working...
 # feature "Add Locations", :type => :feature do
@@ -126,4 +126,7 @@ end
 #       expect(page).to have_text("56 Glover St.")
 #   end
 # end
+
+
+end
 

@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   post 'update_password', to: 'access#update_password'
 
+  match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
 
 # resource routes for user, plus locaitons and items within users
 
