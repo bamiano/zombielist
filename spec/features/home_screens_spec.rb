@@ -100,4 +100,3 @@ feature "Add Locations", :type => :feature do
       expect(page).to have_text("56 Glover St.")
   end
 end
-
