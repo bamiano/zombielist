@@ -164,7 +164,7 @@ window.onload = function() {
               .attr("href", "https://foursquare.com/v/" + venue.id)
               .css("font-weight", "bold");
 
-            var addButton = $("<br> <button>Save to favorites</button>")
+            var addButton = $("<br> <button>Save to locations</button>")
               .on("click", (function (place) {
                 return function () {
                   addlocation(place);
