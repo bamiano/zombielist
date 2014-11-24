@@ -58,7 +58,7 @@ window.onload = function() {
               var button = item.appendChild(document.createElement('button'));
                 button.innerHTML="Favorites";
                 $("button").click(function(){
-                    window.location.href='../favorites/index.html.erb';
+                    window.location.href="/users/" + gon.current_user.id + "/locations/";
                 });
 
             }
