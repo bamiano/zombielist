@@ -1,17 +1,43 @@
-<div class="container" style="height:800px">
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Zombie Preparation guide</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to("Logout", controller: 'access', action: 'logout') %></li>
+    <li><%= link_to 'Favorites', user_favorites_path(current_user) %></li>  
+    <li><%= link_to 'Items', items_path(current_user) %></li> 
+    <li><%= link_to 'Locations', user_locations_path(current_user) %></li>
+        </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container" id="main" style="height:800px">
 
   <div class="row">
-    <h2>Welcome to Zombie Survival Guide</h2>
 
+    <h2 class="title">Welcome to Zombie Survival Guide</h2>
 
-    <hr>
-
+    <p class="links">
     <%= link_to 'Favorites', user_favorites_path(current_user) %> |
     <%= link_to 'Items', items_path %> |
     <%= link_to 'Locations', user_locations_path(current_user) %> |
+    </p>
 
-
-    <p style="font-size:30px; font-weight:bold; text-shadow: 2px 2px 2px #000">This app is designed to help you survive a Zombie Apocalypse and ultimately be better prepared for a natural disaster. Find the link below will take you to an interactive map that will display relevant and useful locations in the event of a Zombie Apocalypse or natural disaster. </p>
+    <p class="guide">Click the link below to take you to an interactive map that will display relevant and useful locations in the event of a zombie apocalypse or other natural disaster.</p>
   </div>
 
   <div class="row">
@@ -165,7 +191,7 @@
 
   <div class="row">
     <!-- Link to map -->
-    <%= link_to 'Save your life', user_path(current_user), class:"btn savelife" %>
+    <%= link_to 'Begin', user_path(current_user), class:"btn savelife" %>
     <a href="#readmore" class="btn savelife">Read more</a>
   </div>
 </div>
@@ -215,5 +241,6 @@
     <h5>Disclaimer</h5>
     <p>This site is intended strictly for fun and by no means do we accept any responsibility. However, the general applicaiton of this site can be used for better disaster preparedness.</p>
     <p><small>Source: Kahn, Ali S. "Preparedness 101: Zombie Apocalypse", CDC Blog, 16 May 2011 -- <a href="http://blogs.cdc.gov/publichealthmatters/2011/05/preparedness-101-zombie-apocalypse/" target="_blank">"Preparedness 101: Zombie Apocalypse"</a></small></p>
+    <a href="#main"> Back to top</a>
   </footer>
 </div>
