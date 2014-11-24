@@ -18,7 +18,7 @@
 
 
 
- body{
+ body {
  	/*background-color: rgba(0,0,0,0.9);*/
  	background: url('https://s3.amazonaws.com/uploads.hipchat.com/39979/1240676/et9CSybKP7QlU6g/backg.jpg') no-repeat center center fixed;
  	-webkit-background-size: cover;
@@ -35,13 +35,46 @@
  	text-shadow: 1px 1px 1px #000;
  }
 
- p{
+ p {
  	font-family: 'Poiret One', cursive;
  	font-size: 20px;
  	line-height: 1.5;
  }
 
- #forgot{
+.intro {
+ 	font-family: 'Poiret One', cursive;
+ 	font-size: 25px;
+ 	line-height: 1.5;
+ 	font-weight:bold; 
+ 	text-shadow: 2px 2px 2px #000;
+ 	padding-bottom: 20px;
+ }
+
+ .intro_header {
+ 	font-weight: bold;
+ 	text-shadow: 2px 2px 2px #000;
+ 	padding-bottom: 20px;
+ }
+
+ .guide {
+ 	padding-top: 30px;
+	font-size: 25px; 
+	font-weight: bold; 
+	text-shadow: 2px 2px 2px #000
+ }
+
+ .title {
+ 	font-size: 50px; 
+	font-weight: bold; 
+	text-shadow: 2px 2px 2px #000
+ }
+
+ .links {
+ 	font-size: 15px;
+ 	font
+ }
+
+ #forgot {
  	color: white;
  	text-decoration: none;
  }
@@ -53,16 +86,16 @@
  	border-bottom: 2px solid #fff;
  }
 
- .zombielogo{
+ .zombielogo {
  	fill:white;
  	
  }
 
- .thumbnail, .navbar{
+ .thumbnail, .navbar {
  	background: none
  }
 
-.savelife{
+.savelife {
 
 	font-size:30px;
 }
@@ -71,10 +104,10 @@
  	border: 2px solid #fff;
  	border-radius: 0;
  	background: black;
- 	color:red;
- 	text-decoration: none;
- 	font-family: 'Poiret One', cursive;
- 	margin: 10px;
+ 	color: red;
+ 	font-family: 'Poiret One';
+ 	font-size: 20px;
+ 	font-weight: bold;
  }
 
 .navbar{
@@ -134,7 +167,7 @@ tr, td{
  	color: white;
  }
 
-.smallpic{
+.smallpic {
 	opacity: 1;
 }
 
@@ -155,10 +188,8 @@ p, ul{
  	color: white;
  }
 
- .modal-dialog
- {
+ .modal-dialog {
  	width: 300px; /* your width */
-
  }
 
  .modal-content {
@@ -170,21 +201,21 @@ p, ul{
  	border-top-right-radius: 0px;
  }
 
- .modal-header, .modal-body, .modal-footer{
+ .modal-header, .modal-body, .modal-footer {
  	border: none;
  }
 
- .close{
+ .close {
  	color:white;
  	font-size: 20px;
  }
 
- .control-label{
+ .control-label {
  	outline: 0;
  	border: 0px;
  }
 
- .leaflet-control-mapbox-geocoder-form input[type=text]{
+ .leaflet-control-mapbox-geocoder-form input[type=text] {
  	color:black;
  	font-family: 'Poiret One', cursive;
  }
@@ -198,7 +229,6 @@ p, ul{
  	background-color: rgba(0,0,0,0.9);
  	border: black solid 2px;
  	font-family: 'Poiret One', cursive;
-
  }
 
  .leaflet-popup-content div a {
@@ -217,7 +247,7 @@ p, ul{
  	border:none;
  }
 
- .leaflet-container{
+ .leaflet-container {
  	border-radius:5px;
  }
 
@@ -227,12 +257,12 @@ p, ul{
 right: -20px
  }
 
- .leaflet-popup-tip-container{
- 	display:none;
+ .leaflet-popup-tip-container {
+ 	display: none;
  }
 
 
-.leaflet-control-container{
+.leaflet-control-container {
 
 }
 
@@ -242,8 +272,7 @@ right: -20px
 	}
 
 
-	.login input[type=text]{
-
+	.login input[type=text] {
 		background: transparent;
 		color: white;
 		font-size: 16px;
@@ -252,19 +281,16 @@ right: -20px
 		outline: 0;
 	}
 
-	.login input[type=password]{
-
+	.login input[type=password] {
 		background: transparent;
 		font-size: 16px;
 		font-weight: bold;
 		padding: 4px;
 		margin-top: 10px;
 		outline: 0;
-
 	}
 
-	.login input[type=button]{
-
+	.login input[type=button] {
 		background: #fff;
 		border: 1px solid #fff;
 		cursor: pointer;
@@ -279,6 +305,6 @@ right: -20px
 
 
 
-	.login input[type=button]:focus{
+	.login input[type=button]:focus {
 		outline: none;
 	}
