@@ -93,7 +93,7 @@ end
 
 
 describe "404 page" do
-  it "is customized" do
+  it "404 page appears" do
 
     visit "/404"
 
