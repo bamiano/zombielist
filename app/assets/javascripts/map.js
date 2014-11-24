@@ -20,6 +20,73 @@ window.onload = function() {
   map.attributionControl
       .addAttribution('<a href="https://foursquare.com/">Places data from Foursquare</a>');
 
+
+ // Find and store a variable reference to the list of filters.
+        var filters = document.getElementById('filters');
+        console.log("filters", filters);
+
+      map.featureLayer.on('ready', function() {
+
+        var typesObj = {}, types = ["suplies","food", "weapons", "hideouts"];
+        var features = map.featureLayer.getGeoJSON().features;
+        for (var i = 0; i < features.length; i++) {
+        typesObj[features[i].properties['marker-symbol']] = true;
+        }
+        for (var k in typesObj) types.push(k);
+
+        var checkboxes = [];
+
+
+
+        // Create a filter interface.
+        for (var i = 0; i < types.length; i++) {
+          // Create an an input checkbox and label inside.
+          var item = filters.appendChild(document.createElement('div'));
+          var checkbox = item.appendChild(document.createElement('input'));
+          var label = item.appendChild(document.createElement('label'));
+          checkbox.type = 'checkbox';
+          checkbox.id = types[i];
+          checkbox.checked = true;
+          console.log("checkbox",checkbox);
+          // create a label to the right of the checkbox with explanatory text
+          label.innerHTML = types[i];
+          label.setAttribute('for', types[i]);
+          // Whenever a person clicks on this checkbox, call the update().
+          checkbox.addEventListener('change', update);
+          checkboxes.push(checkbox);
+            if (i===types.length-1) {
+                item.appendChild(document.createElement("br"));
+              var button = item.appendChild(document.createElement('button'));
+                button.innerHTML="Favorites";
+                $("button").click(function(){
+                    window.location.href='../favorites/index.html.erb';
+                });
+
+            }
+
+        }
+
+        // This function is called whenever someone clicks on a checkbox and changes
+        // the selection of markers to be displayed.
+        function update() {
+          var enabled = {};
+          // Run through each checkbox and record whether it is checked. If it is,
+          // add it to the object of types to display, otherwise do not.
+          for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) enabled[checkboxes[i].id] = true;
+          }
+          map.featureLayer.setFilter(function(feature) {
+            // If this symbol is in the list, return true. if not, return false.
+            // The 'in' operator in javascript does exactly that: given a string
+            // or number, it says if that is in a object.
+            // 2 in { 2: true } // true
+            // 2 in { } // false
+            return (feature.properties['marker-symbol'] in enabled);
+          });
+        }
+          });
+
+
   function showMap(err, data) {
       // The geocoder can return an area, like a city, or a
       // point, like an address. Here we handle both cases,
@@ -122,63 +189,6 @@ window.onload = function() {
       var foursquarePlaces = L.layerGroup().addTo(map);
 
 
-      // Find and store a variable reference to the list of filters.
-      var filters = document.getElementById('filters');
-
-      map.featureLayer.on('ready', function() {
-
-        var typesObj = {}, types = ["suplies","food", "weapons", "hideouts"];
-
-        var checkboxes = [];
-
-
-        // Create a filter interface.
-        for (var i = 0; i < types.length; i++) {
-          // Create an an input checkbox and label inside.
-          var item = filters.appendChild(document.createElement('div'));
-          var checkbox = item.appendChild(document.createElement('input'));
-          var label = item.appendChild(document.createElement('label'));
-          checkbox.type = 'checkbox';
-          checkbox.id = types[i];
-          checkbox.checked = true;
-          // create a label to the right of the checkbox with explanatory text
-          label.innerHTML = types[i];
-          label.setAttribute('for', types[i]);
-          // Whenever a person clicks on this checkbox, call the update().
-          checkbox.addEventListener('change', update);
-          checkboxes.push(checkbox);
-            if (i===types.length-1) {
-                item.appendChild(document.createElement("br"));
-              var button = item.appendChild(document.createElement('button'));
-                button.innerHTML="Favorites";
-                $("button").click(function(){
-                    window.location.href='show.html.erb';
-                });
-
-            }
-
-        }
-
-        // This function is called whenever someone clicks on a checkbox and changes
-        // the selection of markers to be displayed.
-        function update() {
-          var enabled = {};
-          // Run through each checkbox and record whether it is checked. If it is,
-          // add it to the object of types to display, otherwise do not.
-          for (var i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) enabled[checkboxes[i].id] = true;
-          }
-          map.featureLayer.setFilter(function(feature) {
-            // If this symbol is in the list, return true. if not, return false.
-            // The 'in' operator in javascript does exactly that: given a string
-            // or number, it says if that is in a object.
-            // 2 in { 2: true } // true
-            // 2 in { } // false
-            return (feature.properties['marker-symbol'] in enabled);
-          });
-        }
-      });
-
   // have location saved to favorite locations list once clicked
 
   addlocation = function(venue) {
@@ -201,6 +211,6 @@ window.onload = function() {
 
   };
 
-}
+  }
   // closing onload function
 };

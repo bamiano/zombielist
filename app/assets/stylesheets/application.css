@@ -56,20 +56,21 @@
  .btn {
  	border: 2px solid #fff;
  	border-radius: 0;
- 	background: none;
- 	color:white;
+ 	background: black;
+ 	color:red;
  	text-decoration: none;
  	font-family: 'Poiret One', cursive;
  }
 
  button {
  	border: 2px solid #fff;
- 	border-radius: 0;
- 	background: none;
- 	color:white;
+ 	border-radius: 10px;
+ 	border-color: black;
+ 	background-color: yellow;
+ 	color:red;
  	text-decoration: none;
  	font-family: 'Poiret One', cursive;
- 	margin: 20px;
+ 	margin: 5px;
  }
 
 
