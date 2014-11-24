@@ -1,13 +1,14 @@
 
 <div class="container">
   <h1>Disaster Preparedness Items</h1>
+  <small><%= link_to 'Add New Item', new_item_path(@current_user) %></small>
   <div class="row">
     <% @items.each do |item| %>
     <div class="col-md-4">
       <div class="thumbnail">
         <h5 style="text-align: center; font-size:30px"><%= item.item %></h5>
         <p class="pull-right"><strong>Price:</strong> $<%= item.price %> </p>
-       <a class="btn" href="<%= item.url%>">Buy now</a>
+       <a class="btn" href="<%= item.url%>" target="_blank">Buy now</a>
 
        <img class="smallpic" src="<%= item.image %>" width="200" height="200">
         <div class="caption">
@@ -18,7 +19,7 @@
             <%end%>
           </ul>
 
-        </div> 
+        </div>
 
       </div>
 
