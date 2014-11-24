@@ -6,34 +6,22 @@
 <div class="container">
 	<div class="row">
 		<h1> Zombie preparedness</h1>
-		<div class="col-md-10">
-			<p>Enter your zip code <input type="search" style="width:40%; margin:10px; text-align:center"> </p> 
-		</div>
-
+		
 	</div>
-	<div class="row" style="height:480px">
+	<div class="row" style="height:480px; margin-top:20px">
 
-		<div class="col-md-10" style="height:480px" >
+		<div class="col-md-12" style="height:480px" >
 
 			<nav id='filters' class='filter-ui' style="color:black"></nav>
 			<div id='map' style="width:100%; height:100%"></div>
 
 		</div>		
-		<div class="col-md-2">
-			<input type="hidden" id="user-url" value="<%= '/users/' + params[:id].to_s + '/locations' %>" />
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Panel title</h3>
-				</div>
-			</div>
-			<div class="panel-body">
-				Panel content
-			</div>
-		</div>
 	</div>
-
-
 </div>
+
+
+
+
 
 
 
