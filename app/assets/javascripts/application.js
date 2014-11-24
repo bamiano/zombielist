@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+hideOverlay = function() {
+	$('.leaflet-popup').fadeOut();
+	// $('.leaflet-marker-icon').on("click", function() {
+	// });
+};
