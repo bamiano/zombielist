@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
 
   before_action :set_favorite, only: [:show, :edit, :update, :destroy]
   before_action :user_find, only: [:new, :create]
-  before_action :current_user, only: [:index]
+  before_action :current_user
   before_action :confirm_logged_in
 
 

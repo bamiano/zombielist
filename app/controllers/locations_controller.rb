@@ -2,6 +2,7 @@ class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
   before_action :user_find, only: [:new, :create]
   before_action :confirm_logged_in
+  before_action :current_user
 
   # GET /locations
   # GET /locations.json
@@ -26,12 +27,10 @@ class LocationsController < ApplicationController
   # POST /locations
   # POST /locations.json
   def create
-    @location = Location.create(location_params)
-    current_user.locations <<  @location
-
+    @location = @current_user.locations.create(location_params)
     respond_to do |format|
       if @location.save
-        format.html { redirect_to '/', notice: 'Location was successfully created.' }
+        format.html { redirect_to user_locations_path(@current_user), notice: 'Location was successfully created.' }
         format.json { render :show, status: :created, location: @location }
       else
         format.html { render :new }
@@ -72,7 +71,7 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.permit(:location_type, :name, :address, :user_id)
+      params.require(:location).permit(:location_type, :name, :address, :user_id)
     end
     def user_find
       @user = User.find(params[:user_id])

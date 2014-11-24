@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :confirm_logged_in
+  before_action :current_user
 
   def index
     @users = User.all
@@ -9,6 +10,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_id(params[:id])
     prevent_user(@user)
+    gon.current_user = @current_user
   end
 
   def edit
