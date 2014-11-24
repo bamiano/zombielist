@@ -45,7 +45,7 @@
  	font-family: 'Poiret One', cursive;
  	font-size: 25px;
  	line-height: 1.5;
- 	font-weight:bold; 
+ 	font-weight:bold;
  	text-shadow: 2px 2px 2px #000;
  	padding-bottom: 20px;
  }
@@ -58,20 +58,19 @@
 
  .guide {
  	padding-top: 30px;
-	font-size: 25px; 
-	font-weight: bold; 
+	font-size: 25px;
+	font-weight: bold;
 	text-shadow: 2px 2px 2px #000
  }
 
  .title {
- 	font-size: 50px; 
-	font-weight: bold; 
+ 	font-size: 50px;
+	font-weight: bold;
 	text-shadow: 2px 2px 2px #000
  }
 
  .links {
  	font-size: 15px;
- 	font
  }
 
  #forgot {
@@ -88,7 +87,7 @@
 
  .zombielogo {
  	fill:white;
- 	
+
  }
 
  .thumbnail, .navbar {
