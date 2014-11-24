@@ -30,7 +30,7 @@
  	font-size: 20px;
  }
 
- h1, h2, h3, h4 {
+ h1, h2, h3, h4, h5 {
  	font-family: 'Poiret One', cursive;
  	text-shadow: 1px 1px 1px #000;
  }
@@ -52,6 +52,20 @@
  	border: none;
  	border-bottom: 2px solid #fff;
  }
+
+ .zombielogo{
+ 	fill:white;
+ 	
+ }
+
+ .thumbnail, .navbar{
+ 	background: none
+ }
+
+.savelife{
+
+	font-size:30px;
+}
 
  .btn {
  	border: 2px solid #fff;
@@ -88,7 +102,13 @@
  	color: white;
  }
 
+.smallpic{
+	opacity: 1;
+}
 
+p, ul{
+	color:white;
+}
 
  *:focus {
  	outline: 0 !important;
