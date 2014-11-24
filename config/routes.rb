@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   ### ACCESS + MAIN ROUTES
   root 'access#login'
 
-  get '/home', to: 'access#home'
+  get '/home/:id', to: 'access#home', as: 'home'
 
   get '/', to: 'access#login', as: 'log'
 

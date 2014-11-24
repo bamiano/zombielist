@@ -1,4 +1,3 @@
-
 window.onload = function() {
   L.mapbox.accessToken = 'pk.eyJ1IjoieWJpbnN0b2NrIiwiYSI6InhNejJyTGMifQ.nwKk32P-nORfMexmd3-N8Q';
   var geocoder = L.mapbox.geocoder('mapbox.places-v1'),
@@ -185,14 +184,15 @@ window.onload = function() {
     console.log("venue", venue);
 
     var token = $("meta[name='csrf-token']").attr("content");
-
     $.ajax({
       type: 'POST',
-      url: $('#user-url').val(),
+      url: "/users/" + gon.current_user.id + "/locations/",
       data: {
-        location_type: venue.categories[0].name,
-        name: venue.name,
-        address: venue.location.address
+        location: {
+          location_type: venue.categories[0].name,
+          name: venue.name,
+          address: venue.location.address
+        }
       },
       headers: {
           "X-CSRF-Token": token
