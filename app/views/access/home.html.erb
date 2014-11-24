@@ -1,17 +1,15 @@
 <div class="container" style="height:800px">
 
   <div class="row">
-    <h2>Welcome to Zombie Survival Guide</h2>
+    <h2 class="title">Welcome to Zombie Survival Guide</h2>
 
-
-    <hr>
-
+    <p class="links">
     <%= link_to 'Favorites', user_favorites_path(current_user) %> |
     <%= link_to 'Items', items_path(current_user) %> |
     <%= link_to 'Locations', user_locations_path(current_user) %> |
+    </p>
 
-
-    <p style="font-size:30px; font-weight:bold; text-shadow: 2px 2px 2px #000">This app is designed to help you survive a Zombie Apocalypse and ultimately be better prepared for a natural disaster. Find the link below will take you to an interactive map that will display relevant and useful locations in the event of a Zombie Apocalypse or natural disaster. </p>
+    <p class="guide">Click the link below to take you to an interactive map that will display relevant and useful locations in the event of a zombie apocalypse or other natural disaster.</p>
   </div>
 
   <div class="row">
