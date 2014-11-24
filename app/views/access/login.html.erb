@@ -33,7 +33,7 @@
 <!-- Modal -->
 <%= form_tag(login_path) do %>
 <div id="login-modal" class="modal fade">
-	<div class="modal-dialog">
+	<div class="modal-dialog login">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -75,7 +75,7 @@
 
 
 			</div>
-			<div class="modal-body">
+			<div id="email" class="modal-body">
 				<div class="form-group">
 					<%= f.label(:email, class: "control-label") %>
 					<%= f.text_field :email, class: "form-control" %>
