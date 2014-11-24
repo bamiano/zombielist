@@ -1,0 +1,20 @@
+<h1>Disaster Preparedness Items</h1>
+
+<tbody>
+    <% @items.each do |item| %>
+      <ul>
+      <h3>Item Description</h3>
+        <li><%= item.item %></li>
+
+        <li><a href="<%= item.url %>">Link to Item On Amazon</a></li>
+
+        <li><img src="<%= item.image %>" width="250" height="150"></li>
+
+        <h3>Item Price</h3>
+        <li>$<%= item.price %></li>
+
+        <h3>Item Description</h3>
+        <li><%= item.description %></li>
+        <% end %>
+      </ul>
+</tbody>
