@@ -28,7 +28,7 @@ window.onload = function() {
       map.featureLayer.on('ready', function() {
 
         var typesObj = {};
-        var types = ["suplies","food", "weapons", "hideouts"];
+        var types = ["supplies","food", "weapons", "hideouts"];
         var features = map.featureLayer.getGeoJSON().features;
         for (var i = 0; i < features.length; i++) {
           typesObj[features[i].properties['marker-symbol']] = true;
@@ -204,8 +204,60 @@ window.onload = function() {
       // Keep our place markers organized in a nice group.
       var foursquarePlaces = L.layerGroup().addTo(map);
 
+      var markers = L.mapbox.featureLayer().addTo(map);
 
-  // have location saved to favorite locations list once clicked
+      var geojson = [
+          {
+            "type": "Feature",
+            "geometry": {
+              "coordinates": [
+                -123.37030649185,
+                48.4253703539
+              ],
+              "type": "Point"
+            },
+            "properties": {
+              "title": "Marina #2",
+              "icon": {
+                  "iconUrl": "/assets/kitten.jpg",
+                  "iconSize": [50, 50], // size of the icon
+                  "iconAnchor": [25, 25], // point of the icon which will correspond to marker's location
+                  "popupAnchor": [0, -25], // point from which the popup should open relative to the iconAnchor
+                  "className": "dot"
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "coordinates": [
+                -122.4444937706,
+                37.807478357821
+              ],
+              "type": "Point"
+            },
+            "properties": {
+              "title": "Marina #3",
+              "icon": {
+                  "iconUrl": "/assets/kitten.jpg",
+                  "iconSize": [50, 50], // size of the icon
+                  "iconAnchor": [25, 25], // point of the icon which will correspond to marker's location
+                  "popupAnchor": [0, -25], // point from which the popup should open relative to the iconAnchor
+                  "className": "dot"
+              }
+            }
+          }
+      ];
+
+      // Set a custom icon on each marker based on feature properties.
+      markers.on('layeradd', function(e) {
+          var marker = e.layer,
+              feature = marker.feature;
+
+          marker.setIcon(L.icon(feature.properties.icon));
+      });
+
+      markers.setGeoJSON(geojson);
 
   addlocation = function(venue) {
     // console.log("venue", venue);
