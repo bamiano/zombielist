@@ -31,6 +31,10 @@ video {
   display: inline-block;
 }
 
+.marker-title {
+color: white;
+
+}
 audio:not([controls]) {
   display: none;
   height: 0;
