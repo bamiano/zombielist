@@ -181,7 +181,6 @@ window.onload = function() {
 
             var addButton = $("<br> <button onclick='hideOverlay();'> Save to favorites</button>");
               addButton.on("click", (function (place) {
-
                 return function () {
                   addlocation(place);
                 };

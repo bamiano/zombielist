@@ -1,29 +1,34 @@
-<h1>Listing locations</h1>
+<%= render partial: "users/header" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Listing locations</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Address</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <table>
+        <thead>
+          <tr>
+            <th >Type</th>
+            <th >Name</th>
+            <th>Address</th>
 
-  <tbody>
-    <% @locations.each do |location| %>
-      <tr>
-        <td><%= location.location_type %></td>
-        <td><%= location.name %></td>
-        <td><%= location.address %></td>
-        <td><%= link_to 'Show', user_location_path(@current_user, location) %></td>
-        <td><%= link_to 'Edit', edit_user_location_path(@current_user, location) %></td>
-        <td><%= link_to 'Destroy', user_location_path(@current_user, location), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+          </tr>
+        </thead>
 
-<%= link_to 'New Location', new_user_location_path(@current_user) %>
+        <tbody>
+          <% @locations.each do |location| %>
+          <tr>
+            <td ><%= location.location_type %></td>
+            <td ><%= location.name %></td>
+            <td><%= location.address %></td>
+            <td><%= link_to 'Edit', edit_user_location_path(@current_user, location), class: "btn  btn-success" %></td>
+            <td><%= link_to 'Delete', user_location_path(@current_user, location), class: "btn  btn-success", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+      <%= link_to 'Add custom Location', new_user_location_path(@current_user) %>
+    </div>
+  </div>
+</div>

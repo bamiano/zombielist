@@ -1,20 +1,29 @@
-<h1>Disaster Preparedness Items</h1>
 
-<tbody>
+<div class="container">
+  <h1>Disaster Preparedness Items</h1>
+  <small><%= link_to 'Add New Item', new_item_path(@current_user) %></small>
+  <div class="row">
     <% @items.each do |item| %>
-      <ul>
-      <h3>Item Description</h3>
-        <li><%= item.item %></li>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <h5 style="text-align: center; font-size:30px"><%= item.item %></h5>
+        <p class="pull-right"><strong>Price:</strong> $<%= item.price %> </p>
+       <a class="btn" href="<%= item.url%>" target="_blank">Buy now</a>
 
-        <li><a href="<%= item.url %>">Link to Item On Amazon</a></li>
+       <img class="smallpic" src="<%= item.image %>" width="200" height="200">
+        <div class="caption">
+          <p><strong>Description:</strong></p>
+          <ul>
+            <% item.description.split(".").each do |el|%>
+            <li><%= el%></li>
+            <%end%>
+          </ul>
 
-        <li><img src="<%= item.image %>" width="250" height="150"></li>
+        </div>
 
-        <h3>Item Price</h3>
-        <li>$<%= item.price %></li>
+      </div>
 
-        <h3>Item Description</h3>
-        <li><%= item.description %></li>
-        <% end %>
-      </ul>
-</tbody>
+    </div>
+    <% end %>
+  </div>
+</div>

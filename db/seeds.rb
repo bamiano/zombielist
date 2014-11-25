@@ -1,7 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Item.create(item:'Two Person Three Day Survival Kit', url:'http://www.amazon.com/Emergency-Preparedness-Earthquake-Hurricane-Evacuations/dp/B000MT6D8C/ref=sr_1...', image:'http://ecx.images-amazon.com/images/I/71pf9%2BSQ23L._SL1024_.jpg', price:99.95, description:'Backpack survival kit containing enough food and water for 2 people to survive for 3 days')
+
+Item.create(item:'Four Person Three Day Survival Kit', url:'http://www.amazon.com/Earthquake-Person-Deluxe-Survival-Emergency/dp/B003L2E7IA/ref=sr_1_2?ie=UTF8&a...', image:'http://ecx.images-amazon.com/images/I/61xQzpmw%2B3L.jpg',price: 69, description:'Bucket containing enough food and water for 4 people to survive for 3 days')
+
+Item.create(item:'One Person Three Day Survival Kit', url:'http://www.amazon.com/gp/product/B003QCJ1QS/ref=oh_aui_search_detailpage?ie=UTF8&psc=1', image:'http://ecx.images-amazon.com/images/I/71GnYPdtJoL._SL1500_.jpg', price:24.99, description:'Compact kit containing enough food and water for 1 person to survive for 3 days')

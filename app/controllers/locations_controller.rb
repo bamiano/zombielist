@@ -10,8 +10,6 @@ class LocationsController < ApplicationController
     @locations = Location.all
   end
 
-  # GET /locations/1
-  # GET /locations/1.json
   def show
   end
 
@@ -22,6 +20,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/1/edit
   def edit
+    @location= Location.find(params[:id])
   end
 
   # POST /locations
@@ -30,7 +29,7 @@ class LocationsController < ApplicationController
     @location = @current_user.locations.create(location_params)
     respond_to do |format|
       if @location.save
-        format.html { redirect_to user_locations_path(@current_user), notice: 'Location was successfully created.' }
+        format.html { redirect_to user_locations_path(@current_user), success: 'Location was successfully created.' }
         format.json { render :show, status: :created, location: @location }
       else
         format.html { render :new }
@@ -44,7 +43,7 @@ class LocationsController < ApplicationController
   def update
     respond_to do |format|
       if @location.update(location_params)
-        format.html { redirect_to @location, notice: 'Location was successfully updated.' }
+        format.html { redirect_to user_locations_path, notice: 'Location was successfully updated.' }
         format.json { render :show, status: :ok, location: @location }
       else
         format.html { render :edit }
@@ -58,7 +57,7 @@ class LocationsController < ApplicationController
   def destroy
     @location.destroy
     respond_to do |format|
-      format.html { redirect_to locations_url, notice: 'Location was successfully destroyed.' }
+      format.html { redirect_to user_locations_path, notice: 'Location was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
