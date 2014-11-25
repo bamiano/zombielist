@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
+    @items = Item.all
     prevent_user(@user)
     gon.current_user = @current_user
   end

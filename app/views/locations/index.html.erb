@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h1>Listing locations</h1>
+      <h1>Favorite Locations</h1>
 
       <table>
         <thead>
@@ -10,8 +10,6 @@
             <th >Type</th>
             <th >Name</th>
             <th>Address</th>
-
-
           </tr>
         </thead>
 
@@ -21,14 +19,11 @@
             <td ><%= location.location_type %></td>
             <td ><%= location.name %></td>
             <td><%= location.address %></td>
-            <td><%= link_to 'Edit', edit_user_location_path(@current_user, location), class: "btn  btn-success" %></td>
             <td><%= link_to 'Delete', user_location_path(@current_user, location), class: "btn  btn-success", method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
           <% end %>
         </tbody>
       </table>
-      <br>
-      <%= link_to 'Add custom Location', new_user_location_path(@current_user) %>
     </div>
   </div>
 </div>

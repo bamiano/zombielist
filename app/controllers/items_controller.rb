@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
-	
+	before_action :find_item, only: [:destroy]
   before_action :current_user
   before_action :confirm_logged_in
 
   def index
-    @items = Item.all
+    @items = User.find(current_user).items
   end 
 
   def new
@@ -22,9 +22,23 @@ class ItemsController < ApplicationController
     end
     redirect_to items_path
   end
-  
+
+  def destroy
+    @item.destroy
+  end
+
+
   private
   def items_params
     params.require(:item).permit(:item, :url, :image, :price, :description)
   end
+
+  def find_item
+     @item = Item.find(params[:item_id])
+  end
+
+
+
+
+
 end
