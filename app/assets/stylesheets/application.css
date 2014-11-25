@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- @import url(http://fonts.googleapis.com/css?family=Poiret+One);
+ @import url('http://fonts.googleapis.com/css?family=Poiret+One');
 
 
 
@@ -41,7 +41,7 @@
  	line-height: 1.5;
  }
 
-.intro {
+ .intro {
  	font-family: 'Poiret One', cursive;
  	font-size: 25px;
  	line-height: 1.5;
@@ -58,6 +58,7 @@
 
  .guide {
  	padding-top: 30px;
+
 	font-size: 25px;
 	font-weight: bold;
 	text-shadow: 2px 2px 2px #000
@@ -67,6 +68,7 @@
  	font-size: 35px; 
 	font-weight: bold; 
 	text-shadow: 2px 2px 2px #000
+
  }
 
  .links {
@@ -99,6 +101,7 @@
  	background: none
  }
 
+
 .thumbnail {
  	height: 500px;
  }
@@ -118,49 +121,61 @@
  	font-weight: bold;
  }
 
-.navbar{
-border-radius: 0px;
-border-left: 0px;
-border-right: 0px;
-border-top: 0px;
+ .navbar{
+ 	border-radius: 0px;
+ 	border-left: 0px;
+ 	border-right: 0px;
+ 	border-top: 0px;
 
-}
+ }
 
-.navbar-default .navbar-nav > li > a {
-color: white;
-text-shadow: 1px 1px 1px #000;
-}
+ .navbar-default .navbar-nav > li > a {
+ 	color: white;
+ 	text-shadow: 1px 1px 1px #000;
+ }
 
-.navbar-default .navbar-nav > li > a:hover {
-color: red;
-}
+ .navbar-default .navbar-nav > li > a:hover {
+ 	color: red;
+ }
 
-.navbar-default .navbar-brand {
-color: white;
-font-size: 20px;
-text-shadow: 1px 1px 1px #000;
-}
+ .navbar-default .navbar-brand {
+ 	color: white;
+ 	font-size: 20px;
+ 	text-shadow: 1px 1px 1px #000;
+ }
 
 
 
-table{
-	background-color: rgba(255,255,255,0.2);
-}
+ table{
+ 	background-color: rgba(255,255,255,0.2);
+ }
 
-tr, td{
-	margin:10px;
-	padding: 10px;
-}
+ tr, td{
+ 	margin:10px;
+ 	padding: 10px;
+ }
  button {
  	border: 2px solid #fff;
- 	border-radius: 10px;
- 	border-color: black;
- 	background-color: yellow;
- 	color:red;
+ 	border-radius: none;
+ 	border-color: white;
  	text-decoration: none;
  	font-family: 'Poiret One', cursive;
  	margin: 5px;
+ 	background:none;
+ 	color:white;
  }
+
+#filters div button {
+ 	border: 2px solid #fff;
+ 	border-radius: none;
+ 	border-color: black;
+ 	text-decoration: none;
+ 	font-family: 'Poiret One', cursive;
+ 	margin: 5px;
+ 	background:none;
+ 	color:black;
+ }
+
 
 
  .btn:hover {
@@ -178,13 +193,13 @@ tr, td{
  	color: white;
  }
 
-.smallpic {
-	opacity: 1;
-}
+ .smallpic {
+ 	opacity: 1;
+ }
 
-p, ul{
-	color:white;
-}
+ p, ul{
+ 	color:white;
+ }
 
  *:focus {
  	outline: 0 !important;
@@ -238,7 +253,7 @@ p, ul{
 
  .leaflet-popup-content {
  	background-color: rgba(0,0,0,0.9);
- 	border-radius: 10px;
+ 	border-radius: 0;
  	border: black solid 2px;
  	font-family: 'Poiret One', cursive;
  }
@@ -247,9 +262,6 @@ p, ul{
  	font-size: 25px;
  	color:white;
  }
-
-
-
 
  .leaflet-popup {
  	background-color: rgba(0,0,0,0.9);
@@ -260,64 +272,54 @@ p, ul{
  	border:none;
  }
 
- .leaflet-container {
- 	border-radius:5px;
- }
-
-
- .leaflet-popup a {
-/*top: -20px;*/
-right: -20px
- }
+.leaflet-popup a{
+	right: -20px;
+}
 
  .leaflet-popup-tip-container {
  	display: none;
  }
 
 
-.leaflet-control-container {
 
+ .leaflet-bar a {
+ 	display: none;
+ }
+
+#filters{
+	border-radius: 0px;
 }
 
+ .login input[type=text] {
+ 	background: transparent;
+ 	color: white;
+ 	font-size: 16px;
+ 	font-weight: 400;
+ 	padding: 4px;
+ 	outline: 0;
+ }
 
-	.leaflet-bar a {
-		display: none;
-	}
+ .login input[type=password] {
+ 	background: transparent;
+ 	font-size: 16px;
+ 	font-weight: bold;
+ 	padding: 4px;
+ 	margin-top: 10px;
+ 	outline: 0;
+ }
 
+ .login input[type=button] {
+ 	background: #fff;
+ 	border: 1px solid #fff;
+ 	cursor: pointer;
+ 	color: #a18d6c;
+ 	font-size: 16px;
+ 	font-weight: 400;
+ 	padding: 6px;
+ 	margin-top: 10px;
+ }
 
-	.login input[type=text] {
-		background: transparent;
-		color: white;
-		font-size: 16px;
-		font-weight: 400;
-		padding: 4px;
-		outline: 0;
-	}
+ .login input[type=button]:focus {
+ 	outline: none;
+ }
 
-	.login input[type=password] {
-		background: transparent;
-		font-size: 16px;
-		font-weight: bold;
-		padding: 4px;
-		margin-top: 10px;
-		outline: 0;
-	}
-
-	.login input[type=button] {
-		background: #fff;
-		border: 1px solid #fff;
-		cursor: pointer;
-		color: #a18d6c;
-		font-size: 16px;
-		font-weight: 400;
-		padding: 6px;
-		margin-top: 10px;
-	}
-
-
-
-
-
-	.login input[type=button]:focus {
-		outline: none;
-	}
