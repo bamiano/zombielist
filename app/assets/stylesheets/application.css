@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- @import url(http://fonts.googleapis.com/css?family=Poiret+One);
+ @import url('http://fonts.googleapis.com/css?family=Poiret+One');
 
 
 
@@ -101,16 +101,7 @@
  	background: none
  }
 
-<<<<<<< HEAD
- .thumbnail {
- 	height: 500px;
- }
 
- .savelife {
-
- 	font-size:30px;
- }
-=======
 .thumbnail {
  	height: 500px;
  }
@@ -118,7 +109,6 @@
 .savelife {
 	font-size:30px;
 }
->>>>>>> a46446017c427e6226107d03ca7f0c9f312e18f6
 
  .btn {
  	border: 2px solid #fff;
@@ -166,14 +156,26 @@
  }
  button {
  	border: 2px solid #fff;
- 	border-radius: 10px;
- 	border-color: black;
- 	background-color: yellow;
- 	color:red;
+ 	border-radius: none;
+ 	border-color: white;
  	text-decoration: none;
  	font-family: 'Poiret One', cursive;
  	margin: 5px;
+ 	background:none;
+ 	color:white;
  }
+
+#filters div button {
+ 	border: 2px solid #fff;
+ 	border-radius: none;
+ 	border-color: black;
+ 	text-decoration: none;
+ 	font-family: 'Poiret One', cursive;
+ 	margin: 5px;
+ 	background:none;
+ 	color:black;
+ }
+
 
 
  .btn:hover {
@@ -251,7 +253,7 @@
 
  .leaflet-popup-content {
  	background-color: rgba(0,0,0,0.9);
- 	border-radius: 10px;
+ 	border-radius: 0;
  	border: black solid 2px;
  	font-family: 'Poiret One', cursive;
  }
@@ -260,9 +262,6 @@
  	font-size: 25px;
  	color:white;
  }
-
-
-
 
  .leaflet-popup {
  	background-color: rgba(0,0,0,0.9);
@@ -273,30 +272,23 @@
  	border:none;
  }
 
- .leaflet-container {
- 	border-radius:5px;
- }
-
-
- .leaflet-popup a {
- 	/*top: -20px;*/
- 	right: -20px
- }
+.leaflet-popup a{
+	right: -20px;
+}
 
  .leaflet-popup-tip-container {
  	display: none;
  }
 
 
- .leaflet-control-container {
-
- }
-
 
  .leaflet-bar a {
  	display: none;
  }
 
+#filters{
+	border-radius: 0px;
+}
 
  .login input[type=text] {
  	background: transparent;
@@ -327,10 +319,7 @@
  	margin-top: 10px;
  }
 
-
-
-
-
  .login input[type=button]:focus {
  	outline: none;
  }
+
