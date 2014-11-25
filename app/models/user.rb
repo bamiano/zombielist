@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   has_many :locations
   has_many :favorites
 
+  has_many :items_users
+  has_many :items, :through => :items_users
+
   validates :email,
     uniqueness: true,
     presence: true,
