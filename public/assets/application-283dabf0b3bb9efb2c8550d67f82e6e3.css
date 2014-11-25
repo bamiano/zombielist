@@ -6849,7 +6849,7 @@ img {
 button {
   position: center;
 }
-@import url("https://fonts.googleapis.com/css?family=Poiret+One");
+@import url("//fonts.googleapis.com/css?family=Poiret+One");
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -6866,8 +6866,8 @@ button {
 
  */
 
+/*@import url('https://fonts.googleapis.com/css?family=Poiret+One');*/
 
-@import url('https://fonts.googleapis.com/css?family=Poiret+One');
 
  body {
  	/*background-color: rgba(0,0,0,0.9);*/
