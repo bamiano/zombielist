@@ -14,7 +14,7 @@ class AccessController < ApplicationController
   def create
     @user = User.create(user_params)
     if(@user.save)
-      UserMailer.signup_confirmation(@user, root_url).deliver
+      # UserMailer.signup_confirmation(@user, root_url).deliver
       # .deliver - method that action mailer and rails knows
       session[:user_id] = @user.id
       # session[:is_admin] = @user.is_admin

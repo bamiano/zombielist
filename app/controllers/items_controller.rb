@@ -24,7 +24,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item.destroy
+    item = Item.find(params[:id])
+    user = item.users.find(current_user.id)
+    if item and user
+        item.users.delete(user)
+    end
+    redirect_to items_path
   end
 
 
@@ -34,7 +39,7 @@ class ItemsController < ApplicationController
   end
 
   def find_item
-     item = Item.find(params[:item_id])
+     item = Item.find(params[:id])
   end
 
 
