@@ -16,6 +16,7 @@
             <td ><%= item.item %></td>
             <td ><%= item.price %></td>
             <td><%= item.description %></td>
+            <td><a href="<%=item.url%>" class="btn" target="_blank">Buy Now</a></td>
             <td><%= link_to 'Delete', item_path(1), class: "btn  btn-success", method: :delete %></td>
           </tr>
           <% end %>
