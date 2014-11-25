@@ -1,37 +1,41 @@
 window.onload = function() {
+
   L.mapbox.accessToken = 'pk.eyJ1IjoieWJpbnN0b2NrIiwiYSI6InhNejJyTGMifQ.nwKk32P-nORfMexmd3-N8Q';
   var geocoder = L.mapbox.geocoder('mapbox.places-v1'),
       map = L.mapbox.map('map', 'ybinstock.k1nk0dji');
 
   var gControl = L.mapbox.geocoderControl('mapbox.places-v1', {
         keepOpen: true
-    } );
-
-  gControl.on('found', function(data){
-      console.log(data.results.query[0]);
-      geocoder.query(data.results.query[0], showMap);
-  });
+    });
 
   map.addControl(gControl);
-
 
   // Credit Foursquare
   map.attributionControl
       .addAttribution('<a href="https://foursquare.com/">Places data from Foursquare</a>');
 
+  gControl.on('found', function(data){
+      // console.log(map.featureLayer.getGeoJSON());
+      //console.log(data.results.query[0]);
+      geocoder.query(data.results.query[0], showMap);
+      console.log(map.featureLayer.getGeoJSON().features)
+  });
 
  // Find and store a variable reference to the list of filters.
         var filters = document.getElementById('filters');
-        console.log("filters", filters);
+        // console.log("filters", filters);
 
       map.featureLayer.on('ready', function() {
 
-        var typesObj = {}, types = ["suplies","food", "weapons", "hideouts"];
+        var typesObj = {};
+        var types = ["supplies","food", "weapons", "hideouts"];
         var features = map.featureLayer.getGeoJSON().features;
         for (var i = 0; i < features.length; i++) {
-        typesObj[features[i].properties['marker-symbol']] = true;
+          typesObj[features[i].properties['marker-symbol']] = true;
         }
         for (var k in typesObj) types.push(k);
+        console.log(types)
+
 
         var checkboxes = [];
 
@@ -46,7 +50,7 @@ window.onload = function() {
           checkbox.type = 'checkbox';
           checkbox.id = types[i];
           checkbox.checked = true;
-          console.log("checkbox",checkbox);
+          // console.log("checkbox",checkbox);
           // create a label to the right of the checkbox with explanatory text
           label.innerHTML = types[i];
           label.setAttribute('for', types[i]);
@@ -68,22 +72,33 @@ window.onload = function() {
         // This function is called whenever someone clicks on a checkbox and changes
         // the selection of markers to be displayed.
         function update() {
+          // console.log("update");
           var enabled = {};
+
           // Run through each checkbox and record whether it is checked. If it is,
           // add it to the object of types to display, otherwise do not.
           for (var i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) enabled[checkboxes[i].id] = true;
+            if (checkboxes[i].checked) {
+              enabled[checkboxes[i].id] = true;
+              }
           }
+          console.log("enabled", enabled);
+
           map.featureLayer.setFilter(function(feature) {
+            alert("WHEN DO YOU RUN????")
+              console.log(feature);
             // If this symbol is in the list, return true. if not, return false.
             // The 'in' operator in javascript does exactly that: given a string
             // or number, it says if that is in a object.
-            // 2 in { 2: true } // true
-            // 2 in { } // false
+            // "supplies" in  enabled
+            // "food" in enabled
+            // "weapons" in enabled
+            // "hideouts" in enabled
+
             return (feature.properties['marker-symbol'] in enabled);
           });
         }
-          });
+    });
 
 
   function showMap(err, data) {
@@ -152,11 +167,11 @@ window.onload = function() {
           venues = venues.concat(result2[0].response.venues);
           venues = venues.concat(result3[0].response.venues);
           venues = venues.concat(result4[0].response.venues);
-          console.log("venues", venues);
+          // console.log("venues", venues);
 
 
           // Transform each venue result into a marker on the map.
-           for (var i = 0; i < venues.length; i++) {
+          for (var i = 0; i < venues.length; i++) {
             var venue = venues[i];
             var latlng = L.latLng(venue.location.lat, venue.location.lng);
             var foursquareLink = $("<a></a>")
@@ -164,12 +179,13 @@ window.onload = function() {
               .attr("href", "https://foursquare.com/v/" + venue.id)
               .css("font-weight", "bold");
 
-            var addButton = $("<br> <button>Save to locations</button>")
-              .on("click", (function (place) {
+            var addButton = $("<br> <button onclick='hideOverlay();'> Save to favorites</button>");
+              addButton.on("click", (function (place) {
                 return function () {
                   addlocation(place);
                 };
-            })(venue));
+              })(venue));
+
             var buttonContainer = $("<div>")
               .append(foursquareLink, addButton)
               .get(0);
@@ -180,18 +196,70 @@ window.onload = function() {
               })
             .bindPopup(buttonContainer)
             .addTo(foursquarePlaces);
-            }
+          }
       });
 
 
       // Keep our place markers organized in a nice group.
       var foursquarePlaces = L.layerGroup().addTo(map);
 
+      var markers = L.mapbox.featureLayer().addTo(map);
 
-  // have location saved to favorite locations list once clicked
+      var geojson = [
+          {
+            "type": "Feature",
+            "geometry": {
+              "coordinates": [
+                -123.37030649185,
+                48.4253703539
+              ],
+              "type": "Point"
+            },
+            "properties": {
+              "title": "Marina #2",
+              "icon": {
+                  "iconUrl": "/assets/kitten.jpg",
+                  "iconSize": [50, 50], // size of the icon
+                  "iconAnchor": [25, 25], // point of the icon which will correspond to marker's location
+                  "popupAnchor": [0, -25], // point from which the popup should open relative to the iconAnchor
+                  "className": "dot"
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "coordinates": [
+                -122.4444937706,
+                37.807478357821
+              ],
+              "type": "Point"
+            },
+            "properties": {
+              "title": "Marina #3",
+              "icon": {
+                  "iconUrl": "/assets/kitten.jpg",
+                  "iconSize": [50, 50], // size of the icon
+                  "iconAnchor": [25, 25], // point of the icon which will correspond to marker's location
+                  "popupAnchor": [0, -25], // point from which the popup should open relative to the iconAnchor
+                  "className": "dot"
+              }
+            }
+          }
+      ];
+
+      // Set a custom icon on each marker based on feature properties.
+      markers.on('layeradd', function(e) {
+          var marker = e.layer,
+              feature = marker.feature;
+
+          marker.setIcon(L.icon(feature.properties.icon));
+      });
+
+      markers.setGeoJSON(geojson);
 
   addlocation = function(venue) {
-    console.log("venue", venue);
+    // console.log("venue", venue);
 
     var token = $("meta[name='csrf-token']").attr("content");
     $.ajax({

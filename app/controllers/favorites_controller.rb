@@ -30,11 +30,10 @@ class FavoritesController < ApplicationController
   # POST /favorites
   # POST /favorites.json
   def create
-
     @favorite = Favorite.create(favorite_params)
 
     current_user.favorites <<  @favorite
-    
+
   end
 
   # PATCH/PUT /favorites/1

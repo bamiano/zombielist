@@ -1,29 +1,24 @@
 <%= render partial: "users/header" %>
+
+
 <div class="container">
-  <h1>Disaster Preparedness Items</h1>
-  <small><%= link_to 'Add New Item', new_item_path(@current_user) %></small>
-  <div class="row">
-    <% @items.each do |item| %>
-    <div class="col-md-4">
-      <div class="thumbnail" >
-        <h5 style="text-align: center; font-size:30px"><%= item.item %></h5>
-        <p class="pull-right"><strong>Price:</strong> $<%= item.price %> </p>
-       <a class="btn btn-sm" href="<%= item.url%>" target="_blank">Buy now</a>
-
-       <img class="smallpic" src="<%= item.image %>" width="200" height="200">
-        <div class="caption">
-          <p><strong>Description:</strong></p>
-          <ul>
-            <% item.description.split(".").each do |el|%>
-            <li><%= el%></li>
-            <%end%>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-    <% end %>
-  </div>
+   <table>
+        <thead>
+          <tr>
+            <th >Item</th>
+            <th >Price</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+          <tr>
+            <td ><%= item.item %></td>
+            <td ><%= item.price %></td>
+            <td><%= item.description %></td>
+            <td><%= link_to 'Delete', item_path(item), class: "btn  btn-success", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
 </div>

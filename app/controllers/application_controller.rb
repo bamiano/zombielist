@@ -9,14 +9,14 @@ private
   def confirm_logged_in
     unless session[:user_id]
       flash[:notice] = "Please log in."
-      redirect_to('/login')
+      redirect_to('/')
     end
   end
 
   # Stop a logged in user from going to the sign up page
   def prevent_login_signup
     if session[:user_id]
-      redirect_to('/home')
+      redirect_to user_path(current_user)
     end
   end
 
