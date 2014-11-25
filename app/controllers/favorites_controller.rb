@@ -33,6 +33,7 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.create(favorite_params)
 
     current_user.favorites <<  @favorite
+
   end
 
   # PATCH/PUT /favorites/1

@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
+    item.destroy
   end
 
 
@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
   end
 
   def find_item
-     @item = Item.find(params[:item_id])
+     item = Item.find(params[:item_id])
   end
 
 
