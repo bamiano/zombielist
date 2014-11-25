@@ -6,17 +6,6 @@
 </head>
 <body>
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>	
-
-<link rel="stylesheet" href="/sty">
-
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -33,9 +22,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-        
-    <li><%= link_to 'Favorites', user_favorites_path(current_user) %></li>  
-    <li><%= link_to 'Items', items_path(current_user) %></li> 
+
+    <li><%= link_to 'Favorites', user_favorites_path(current_user) %></li>
+    <li><%= link_to 'Items', items_path(current_user) %></li>
     <li><%= link_to 'Locations', user_locations_path(current_user) %></li>
     <li><%= link_to("Logout", controller: 'access', action: 'logout') %></li>
         </ul>

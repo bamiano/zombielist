@@ -14,7 +14,7 @@ class AccessController < ApplicationController
   def create
     @user = User.create(user_params)
     if(@user.save)
-      UserMailer.signup_confirmation(@user).deliver
+      UserMailer.signup_confirmation(@user, root_url).deliver
       # .deliver - method that action mailer and rails knows
       session[:user_id] = @user.id
       # session[:is_admin] = @user.is_admin
@@ -88,7 +88,7 @@ class AccessController < ApplicationController
       # create and save reset token on user
       reset_token = (0...16).map { (65 + rand(26)).chr }.join
       user.update_attributes(reset_token: reset_token)
-      UserMailer.forgot_password_email(user).deliver
+      UserMailer.forgot_password_email(user, root_url).deliver
       flash[:success] = "Please check your email for reset instructions ..."
     end
       redirect_to :login
