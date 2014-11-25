@@ -1,3 +1,4 @@
+<%= render partial: "users/header" %>
 
 <div class="container">
   <h1>Disaster Preparedness Items</h1>
@@ -8,8 +9,6 @@
       <div class="thumbnail">
         <h5 style="text-align: center; font-size:30px"><%= item.item %></h5>
         <p class="pull-right"><strong>Price:</strong> $<%= item.price %> </p>
-       <a class="btn" href="<%= item.url%>" target="_blank">Buy now</a>
-
        <img class="smallpic" src="<%= item.image %>" width="200" height="200">
         <div class="caption">
           <p><strong>Description:</strong></p>
@@ -20,9 +19,11 @@
           </ul>
 
         </div>
-
       </div>
-
+        <div class="adderbtn">
+          <a class="btn" href="<%= item.url%>" target="_blank">Buy Now</a>
+          <a class="btn" href="<%= item.url%>" target="_blank">Add to Favorites</a>
+        </div>
     </div>
     <% end %>
   </div>
