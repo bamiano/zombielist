@@ -1,4 +1,9 @@
-  #map { position:absolute; top:0; bottom:0; width:100%; }
+  #map {
+  position:absolute;
+  width:100%;
+  height: 2000px;
+  }
+
 .filter-ui {
  background:#fff;
  position:absolute;
@@ -14,8 +19,7 @@
  body { margin:0; padding:0; }
 
  img {
-   background: red;
-   opacity: .25;
+   opacity: 1;
  }
  button {
  position: center;
