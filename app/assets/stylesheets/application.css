@@ -64,8 +64,13 @@
  }
 
  .title {
+<<<<<<< HEAD
+ 	font-size: 35px; 
+	font-weight: bold; 
+=======
  	font-size: 50px;
 	font-weight: bold;
+>>>>>>> 19bd2d6124681086ccd2fe11c54863b22dca4524
 	text-shadow: 2px 2px 2px #000
  }
 
@@ -85,6 +90,11 @@
  	border-bottom: 2px solid #fff;
  }
 
+ .adderbtn {
+ 	text-align: center;
+ 	padding: 10px;
+ }
+
  .zombielogo {
  	fill:white;
 
@@ -94,18 +104,22 @@
  	background: none
  }
 
-.savelife {
+.thumbnail {
+ 	height: 500px;
+ }
 
+.savelife {
 	font-size:30px;
 }
 
  .btn {
  	border: 2px solid #fff;
  	border-radius: 0;
- 	background: black;
- 	color: red;
+ 	text-decoration: none;
+ 	background: none;
+ 	color: white;
  	font-family: 'Poiret One';
- 	font-size: 20px;
+ 	font-size: 16px;
  	font-weight: bold;
  }
 
