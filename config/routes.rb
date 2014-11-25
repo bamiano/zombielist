@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get 'logout', to: 'access#logout'
 
+  get 'add_user_to_items/:item_id', to: 'items#favorite', as: 'favorite'
+
 # password reset
 
   get 'forgot', to: 'access#forgot_password'
