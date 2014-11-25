@@ -22,7 +22,7 @@
       </div>
         <div class="adderbtn">
           <a class="btn" href="<%= item.url%>" target="_blank">Buy Now</a>
-          <a class="btn" href="<%= item.url%>" target="_blank">Add to Favorites</a>
+          <%= link_to 'Favorite', favorite_path(item)%>
         </div>
     </div>
     <% end %>

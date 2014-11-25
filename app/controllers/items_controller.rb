@@ -1,26 +1,30 @@
 class ItemsController < ApplicationController
-	def index
-		@items = Item.all
-	end
-  # need new action
+	
+  before_action :current_user
+  before_action :confirm_logged_in
+
+  def index
+    @items = Item.all
+  end 
 
   def new
     @item = Item.new
   end
 
   def create
-    @item = Item.create(items_params)
-    if @item.save
-      flash[:success] = "Item created and saved"
-      redirect_to items_path
-    else
-      render :new
-    end
+    current_user.items << Item.find(item_id)
   end
 
+  def favorite
+    favorite = Item.find(params[:item_id])
+    if ItemsUser.where(user_id: @current_user, item_id: favorite.id).empty?
+      @current_user.items << favorite 
+    end
+    redirect_to items_path
+  end
+  
   private
   def items_params
     params.require(:item).permit(:item, :url, :image, :price, :description)
   end
-
 end
